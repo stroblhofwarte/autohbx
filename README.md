@@ -7,7 +7,7 @@ Install all required packages on your Ubuntu/Debian platform:
 
 Get the files from git:
 
-`git clone http://git.stroblhof-oberrohrbach.de/othmar/autohbx.git`
+`git clone https://github.com/stroblhofwarte/autohbx.git
 `cd autohbx`
 
 Build the makefile:
