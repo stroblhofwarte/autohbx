@@ -39,6 +39,7 @@ LX200::LX200(QString port)
         if (fileCheck.open(QIODevice::ReadOnly | QIODevice::Text))
         {
             lastPort = fileCheck.readLine();
+            lastPort = lastPort.trimmed();
             fileCheck.close();
         }
 
