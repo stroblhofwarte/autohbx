@@ -23,6 +23,7 @@
 #include <QThread>
 #include <QSerialPortInfo>
 #include <QCoreApplication>
+#include <QFile>
 
 #include <cstdlib>
 #include <iostream>

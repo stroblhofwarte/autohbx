@@ -32,14 +32,35 @@ LX200::LX200(QString port)
         QList<QSerialPortInfo> comports;
         comports = QSerialPortInfo::availablePorts();
 
+        // CHecking for the port can be so slow!
+        // Simpl hack: Store the last port and try this first!
+        QFile fileCheck("~.autostar.port");
+        if (fileCheck.open(QIODevice::ReadOnly | QIODevice::Text))
+        {
+            QString lastPort = fileCheck.readLine();
+            fileCheck.close();
+        }
+
         for( int i=0; i<comports.count(); ++i )
         {
+            if(TestAutostar(lastPort))
+            {
+                comPort = lastPort;
+                break;
+            }
             QCoreApplication::processEvents();
             std::cout << "Check " << comports[i].portName().toStdString().c_str() << std::endl;
             bool ret = TestAutostar(comports[i].portName());
             if(ret)
             {
                 comPort = comports[i].portName();
+                QFile fileOut("~.autostar.port");
+                if (fileOut.open(QIODevice::WriteOnly | QIODevice::Text))
+                {
+                    QTextStream out(&fileOut);
+                    out << comPort << "\n";
+                    fileOut.close();
+                }
                 break;
             }
         }
