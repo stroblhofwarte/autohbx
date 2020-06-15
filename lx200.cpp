@@ -34,16 +34,17 @@ LX200::LX200(QString port)
 
         // CHecking for the port can be so slow!
         // Simpl hack: Store the last port and try this first!
+        QString lastPort = "";
         QFile fileCheck("~.autostar.port");
         if (fileCheck.open(QIODevice::ReadOnly | QIODevice::Text))
         {
-            QString lastPort = fileCheck.readLine();
+            lastPort = fileCheck.readLine();
             fileCheck.close();
         }
 
         for( int i=0; i<comports.count(); ++i )
         {
-            if(TestAutostar(lastPort))
+            if(lastPort.length() > 0 && TestAutostar(lastPort))
             {
                 comPort = lastPort;
                 break;

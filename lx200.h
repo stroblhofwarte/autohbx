@@ -24,6 +24,7 @@
 #include <QSerialPortInfo>
 #include <QCoreApplication>
 #include <QFile>
+#include <QTextStream>
 
 #include <cstdlib>
 #include <iostream>
