@@ -281,10 +281,10 @@ void hbx::on_pbMax_clicked()
 
 void hbx::on_pbFw_clicked()
 {
-    lx200->SendKey("69");
+    lx200->SendKey("87");
 }
 
 void hbx::on_pbBw_clicked()
 {
-    lx200->SendKey("87");
+    lx200->SendKey("69");
 }
