@@ -278,3 +278,13 @@ void hbx::on_pbMax_clicked()
     ui->pbSlew->setStyleSheet("background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #161616, stop: 1 #323030);");
     ui->pbMax->setStyleSheet("background-color:#510202;");
 }
+
+void hbx::on_pbFw_clicked()
+{
+    lx200->SendKey("69");
+}
+
+void hbx::on_pbBw_clicked()
+{
+    lx200->SendKey("87");
+}
