@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>852</width>
-    <height>718</height>
+    <height>751</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -152,7 +152,7 @@ max-height: 32px;
       <x>440</x>
       <y>30</y>
       <width>391</width>
-      <height>591</height>
+      <height>641</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -423,7 +423,7 @@ max-height: 32px;
     <property name="geometry">
      <rect>
       <x>50</x>
-      <y>580</y>
+      <y>630</y>
       <width>71</width>
       <height>32</height>
      </rect>
@@ -436,7 +436,7 @@ max-height: 32px;
     <property name="geometry">
      <rect>
       <x>130</x>
-      <y>580</y>
+      <y>630</y>
       <width>71</width>
       <height>32</height>
      </rect>
@@ -449,7 +449,7 @@ max-height: 32px;
     <property name="geometry">
      <rect>
       <x>210</x>
-      <y>580</y>
+      <y>630</y>
       <width>71</width>
       <height>32</height>
      </rect>
@@ -462,13 +462,39 @@ max-height: 32px;
     <property name="geometry">
      <rect>
       <x>290</x>
-      <y>580</y>
+      <y>630</y>
       <width>71</width>
       <height>32</height>
      </rect>
     </property>
     <property name="text">
      <string>Max</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pbFw">
+    <property name="geometry">
+     <rect>
+      <x>100</x>
+      <y>570</y>
+      <width>101</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>&lt;</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pbBw">
+    <property name="geometry">
+     <rect>
+      <x>220</x>
+      <y>570</y>
+      <width>101</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>&gt;</string>
     </property>
    </widget>
   </widget>
