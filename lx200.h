@@ -25,6 +25,7 @@
 #include <QCoreApplication>
 #include <QFile>
 #include <QTextStream>
+#include <QDir>
 
 #include <cstdlib>
 #include <iostream>
