@@ -19,6 +19,7 @@
 
 LX200::LX200(QString port)
 {
+    receiving = false;
     if(port.length() > 0)
     {
         // Port given, use this one:
@@ -134,7 +135,9 @@ bool LX200::OpenAutostar(QString device)
         QObject::connect(&serial, &QSerialPort::readyRead, [&]
         {
             QByteArray data =  serial.readAll();
+            _lock.lock();
             processInputBuffer(data);
+            _lock.unlock();
         });
         QObject::connect(&serial,
                              static_cast<void(QSerialPort::*)(QSerialPort::SerialPortError)>
@@ -192,7 +195,15 @@ bool LX200::IsOpen()
 
 void LX200::ReadDisplay()
 {
-    if(receiving) return;
+    int locktimeout = 80;
+    while(receiving == true && locktimeout > 0)
+    {
+        locktimeout--;
+        QThread::msleep(10);
+    }
+    _lock.lock();
+    receiving = true;
+    _lock.unlock();
     if(nextKey.length() > 0)
     {
         serial.write(nextKey.toStdString().c_str());
@@ -200,8 +211,7 @@ void LX200::ReadDisplay()
         nextKey = "";
     }
     serial.write(":ED#");
-    serial.waitForBytesWritten();
-    receiving = true;
+    serial.waitForBytesWritten(); 
 }
 
 QString LX200::ComPort()
@@ -233,3 +243,5 @@ void LX200::SendOther(QString cmd)
 {
     nextKey = cmd;
 }
+
+

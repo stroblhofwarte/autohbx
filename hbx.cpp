@@ -291,10 +291,16 @@ void hbx::on_pbBw_clicked()
 
 void hbx::on_pbSetTime_clicked()
 {
-    lx200->SendOther(":SL04:31:30#");
+    QDateTime now = QDateTime::currentDateTime();
+    QString dateString = now.toString("MM/dd/yy");
+    QString timeString = now.toString("hh:mm:ss");
+    int UTC = now.offsetFromUtc()/3600;
+    // Meade has different meaning:
+    QString offsetSign = "-";
+    if(UTC < 0)
+        offsetSign = "+";
+    UTC = abs(UTC);
+    QString UTCOffset = QString("%1.0").arg(UTC, 2, 10, QChar('0'));
+    lx200->SendOther(":SC" + dateString + "#:SL" + timeString + "#:SG" + offsetSign + UTCOffset + "#");
 }
 
-void hbx::on_edCmd_returnPressed()
-{
-    lx200->SendOther(ui->edCmd->text());
-}

@@ -26,6 +26,7 @@
 #include <QFile>
 #include <QTextStream>
 #include <QDir>
+#include <QMutex>
 
 #include <cstdlib>
 #include <iostream>
@@ -63,6 +64,7 @@ private:
     bool volatile receiving;
     QString nextKey;
     QString comPort;
+    QMutex _lock;
 
 
 };
