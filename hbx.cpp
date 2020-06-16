@@ -288,3 +288,8 @@ void hbx::on_pbBw_clicked()
 {
     lx200->SendKey("69");
 }
+
+void hbx::on_pbSetTime_clicked()
+{
+    lx200->SendOther(":SL16:31:30#");
+}

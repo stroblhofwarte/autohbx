@@ -91,6 +91,7 @@ private slots:
         void on_pbMax_clicked();
         void on_pbFw_clicked();
         void on_pbBw_clicked();
+        void on_pbSetTime_clicked();
 };
 
 #endif // HBX_H
