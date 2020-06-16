@@ -92,6 +92,7 @@ private slots:
         void on_pbFw_clicked();
         void on_pbBw_clicked();
         void on_pbSetTime_clicked();
+        void on_edCmd_returnPressed();
 };
 
 #endif // HBX_H

@@ -291,5 +291,10 @@ void hbx::on_pbBw_clicked()
 
 void hbx::on_pbSetTime_clicked()
 {
-    lx200->SendOther(":SL16:31:30#");
+    lx200->SendOther(":SL04:31:30#");
+}
+
+void hbx::on_edCmd_returnPressed()
+{
+    lx200->SendOther(ui->edCmd->text());
 }

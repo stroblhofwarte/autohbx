@@ -510,6 +510,16 @@ max-height: 32px;
      <string>TIME</string>
     </property>
    </widget>
+   <widget class="QLineEdit" name="edCmd">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>140</y>
+      <width>361</width>
+      <height>25</height>
+     </rect>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
